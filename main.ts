@@ -28,6 +28,8 @@ function NextNevel () {
         tiles.setTilemap(tilemap`level5`)
     } else if (3 == currentNevel) {
         tiles.setTilemap(tilemap`level7`)
+    } else if (4 == currentNevel) {
+        tiles.setTilemap(tilemap`level8`)
     } else {
         game.over(true)
     }
@@ -57,6 +59,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     otherSprite.destroy()
     if (sprite.bottom < otherSprite.y) {
         sprite.vy = -100
+        info.changeScoreBy(1)
     } else {
         info.changeLifeBy(-1)
     }
